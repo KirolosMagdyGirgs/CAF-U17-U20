@@ -6,14 +6,19 @@ st.set_page_config(page_title="🌍 CAF U17/U20 Top Players", layout="wide")
 
 st.markdown("""
     <style>
-        .block-container {padding-top: 2rem;}
-        .css-1d391kg {background-color: #f5f5f5;}
-        .css-ffhzg2 {color: #000000;}
-        .st-bb {background-color: #c8102e !important; color: white;}
-        .st-eb {color: black !important;}
-        .stDataFrame {border: 1px solid #c8102e;}
+        .block-container {
+            padding-top: 2rem;
+        }
+        .stDataFrame {
+            border: 1px solid #c8102e !important;
+        }
+        .stButton > button {
+            background-color: #c8102e !important;
+            color: white !important;
+        }
     </style>
 """, unsafe_allow_html=True)
+
 
 st.sidebar.image("TAP Logo.png", width=300)
 league_option = st.sidebar.selectbox("Select League", ["CAF U17", "CAF U20"])
@@ -186,7 +191,8 @@ if st.session_state.get("df_loaded", False):
             return "⭐⭐"
         else:
             return "⭐"
-
+    st.markdown("<i>Note: This Average Rating is calculated based on key stats specific to each position group.</i>", unsafe_allow_html=True)
+    
     for group, stat_weights in position_group_weights.items():
         weighted_stats = {}
         for stat, weight in stat_weights.items():
@@ -213,10 +219,12 @@ if st.session_state.get("df_loaded", False):
             "Match Name", 'Full Name', "Most Played Position", "Shirt Number", 'Team Name', 'Average Rating', 'Stars Rating'
         ]]
         top3.index = ["🥇 Rank 1", "🥈 Rank 2", "🥉 Rank 3"][:len(top3)]
+        
 
         st.markdown(f"<h3 style='color:white;'>Top 3 {group}</h3>", unsafe_allow_html=True)
+        
         st.dataframe(top3, use_container_width=True)
-
+        
         #st.subheader(f"All Weighted Stats for {group}")
         #stat_cols = ['Full Name', 'Team Name'] + list(weighted_stats.keys()) + \
         #           [col.replace('_weighted', '') for col in weighted_stats.keys() if col.replace('_weighted', '') in subset.columns]
