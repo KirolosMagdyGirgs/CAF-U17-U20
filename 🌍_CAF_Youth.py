@@ -4,21 +4,6 @@ import numpy as np
 
 st.set_page_config(page_title="CAF U17/U20 Top Players", layout="wide", page_icon='🌍')
 
-st.markdown("""
-    <style>
-        .block-container {
-            padding-top: 2rem;
-        }
-        .stDataFrame {
-            border: 1px solid #c8102e !important;
-        }
-        .stButton > button {
-            background-color: #c8102e !important;
-            color: white !important;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
 
 st.sidebar.image("TAP Logo.png", width=300)
 league_option = st.sidebar.selectbox("Select League", ["CAF U17", "CAF U20"])
