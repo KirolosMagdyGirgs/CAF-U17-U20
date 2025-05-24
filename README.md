@@ -10,13 +10,5 @@ This Streamlit app provides an interactive dashboard to evaluate and compare pla
 - 📁 **Dynamic League Selection** — Easily switch between U17 and U20 datasets.
 - 🧮 **Weighted per-90 Stats** — Adjusted for time played (max cap: 450 mins) for fair comparisons.
 
-## 📂 Data Format
 
-- Source: `Player Season Stats - CAF U17.xlsx` and `CAF U20.xlsx`
-- Required columns: `Time Played`, `Position Group`, `Most Played Position`, and various p90 metrics.
 
-## ▶️ How to Run
-
-1. Install dependencies:
-   ```bash
-   pip install streamlit pandas numpy openpyxl
